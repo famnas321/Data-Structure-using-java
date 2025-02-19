@@ -38,14 +38,28 @@ public class Delete {
         if(temp !=null && temp.data==data){
             head=temp.next;
             head.prev=null;
+            return;
         }
+     while(temp !=null && temp.data!=data){
+        temp= temp.next;
+     }
+     if(temp == tail){
+         tail=temp.prev;
+         tail.next=null;
+         return;
+     }
+     temp.prev.next=temp.next;
+     temp.next.prev=temp.prev;
     }
+    
     public static void main(String[] args) {
         Delete list =new Delete();
         list.addNode(30); 
         list.addNode(40); 
         list.addNode(60); 
         list.addNode(80); 
+        list.delete(30);
         list.display();
+        
     }
 }
