@@ -23,6 +23,12 @@ public class Push {
         
     
       }
+      public void pop(){
+        if(top==null){
+            System.out.println("Stack underflow");
+        }
+        top=top.next;
+      }
       public void display(){
         Node temp= top;
         if(temp == null){
@@ -43,7 +49,7 @@ public class Push {
           list.pushing(10);
           list.pushing(40);
           list.pushing(50);
-    
+         list.pop();
           
           
           list.display();
